@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+ 
+   <meta charset='utf-8'>
+   <title>Hurry Up !!! Game</title>
+   <link rel="stylesheet" href="css/game.css">
+
+   <script src="ExternalLibrary/jquery-1.4.3.js"></script>
+   <script>
+       $(document).ready(function () {
+
+                var playerNum=1, sceneNum=1, soundsOn=1;
+                $("#player1,#player2").click(function () {
+
+                    if ($(this).attr("class") == "selected")
+                    {
+                        //do nothing
+                    }
+                    else
+                    {
+                        $(this).attr("class", "selected");
+                        if ($(this).attr("id") == "player1") {
+                            $("#player2").attr("class", "unselected");
+                            playerNum = 1;
+                        }
+                        else
+                        {
+                            $("#player1").attr("class", "unselected");
+                            playerNum = 2;
+                        }
+                        $("#playerSelected").attr("src", $(this).attr("src"));
+                    }
+            });
+
+            $("#theme1,#theme2,#theme3,#theme4").click(function () {
+                if ($(this).attr("class") == "selected")
+                {
+                    //do nothing
+                }
+                else
+                {
+                    $("#theme1,#theme2,#theme3,#theme4").attr("class", "unselected");
+                    $(this).attr("class", "selected");
+                    sceneNum= eval(($(this).attr("id")).slice(-1));
+                    $("#themeSelected").attr("src", $(this).attr("src"));
+                }
+            });
+
+            $("#sounds").click(function () {
+                if ($(this).attr("alt") == "on")
+                {
+                    $(this).attr("alt", "off").attr("src", "images/off.png");
+                    soundsOn = 0;//off
+                }
+                else
+                {
+                    $(this).attr("alt", "on").attr("src", "images/on.png");
+                    soundsOn = 1;//on
+                }
+            });
+            $("#save").click(function () {
+                
+                localStorage["Player_Hurry"] = playerNum;
+                localStorage["Theme_Hurry"] = sceneNum;
+                localStorage["Sounds_Hurry"] = soundsOn;
+                $("#gameSettings").addClass("hidden");
+                location.reload();
+                
+            });
+            $("#cancel").click(function () {
+
+                $("#gameSettings").addClass("hidden");
+                
+            });
+            $("#setBtn").click(function () {
+
+                $("#gameSettings").removeClass("hidden");
+                
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+  
+    <header>
+        <h1>Hurry Up</h1>
+  
+    </header>
+  
+    <div id='game'>
+
+        <canvas id='game-canvas' width='650' height='400'></canvas>
+        <canvas id="game-setting" width='650' height="400"></canvas>
+
+        <div id='score'>
+        <img src="images/coin1.png" />&nbsp;0 * 1000 = </div>
+        <div id='menu' class='scene hidden'>
+            <input id="playerName" type="text" size="30" style="position:absolute;left:50%;top:50%;background-color:rgb(203,255,132);" placeholder="Enter Your Name..."/>
+            <span id='start-btn' style="position:absolute;left:61%;top:58.5%;cursor:pointer;width:65px;height:45px;"></span>
+            <img id="setBtn" src="images/settings.png" style="position:absolute;left:73%;top:58.5%;cursor:pointer;width:45px;height:45px;" />
+        </div>
+      
+    <div id='gameover' class='scene hidden'>
+        <div id='your-game-score'>Your Score is 100</div>
+        <div id='top-scores'></div>
+            <a href="#" id="tweet" target="_blank" rel="nofollow" style="position:absolute;left:10%;top:70%;">
+            
+                <img src="images/twitter.jpg"  width="30px" height="30px"/><br />Tweet My Score
+
+            </a> 
+            <a href="#" id="facebook"  style="position:absolute;left:80%;top:70%;">
+               
+                 <img src="images/fb.jpg" width="30px" height="30px"/><br />Post My Score
+
+            </a> 
+        
+            <a id='restart-btn' href='#'>
+
+            </a>
+        </div>
+      
+        <div id="gameSettings" class='scene hidden'>
+          
+            <table class="auto-style1">
+                <tr>
+                    <td colspan="2" class="auto-style2" style="font-family: &quot;AR CENA&quot;; font-size: x-large;text-align:center;">Player</td>
+                    <td class="auto-style4" style="font-family: &quot;AR CENA&quot;; font-size: x-large"></td>
+                    <td colspan="4" class="auto-style2" style="font-family: &quot;AR CENA&quot;; font-size: x-large;text-align:center;">Theme</td>
+               </tr>
+                <tr>
+                    <td colspan="2" class="auto-style6"><img id="playerSelected" src="images/player1.png" style="width:100%;height:100%;border:2px solid black;"></img></td>
+                    <td class="auto-style7"></td>
+                    <td colspan="4" class="auto-style6"><img id="themeSelected" src="images/theme1.png"  style="width:100%;height:100%;border:2px solid black;"></img></td>
+                </tr>
+                <tr>
+                    <td class="auto-style11"><img id="player1" src="images/player1.png" class="selected"></img></td>
+                    <td class="auto-style13"><img id="player2" src="images/player2.png" class="unselected"></img></td>
+                    <td class="auto-style10"></td>
+                    <td class="auto-style8"><img id="theme1" src="images/theme1.png" class="selected"></img></td>
+                    <td class="auto-style8"><img id="theme2" src="images/theme2.png" class="unselected"></img></td>
+                    <td class="auto-style8"><img id="theme3" src="images/theme3.png" class="unselected"></img></td>
+                    <td class="auto-style8"><img id="theme4" src="images/theme4.png" class="unselected"></img></td>
+                </tr>
+                <tr>
+                    <td class="auto-style14"></td>
+                    <td class="auto-style15" style="font-family: &quot;AR CENA&quot;; font-size: x-large;text-align:right;">Sounds :</td>
+                    <td class="auto-style16"></td>
+                    <td class="auto-style17">
+                        <img id="sounds" alt="on" src="images/on.png" style="cursor:pointer;" /></td>
+                    <td class="auto-style17"></td>
+                    <td class="auto-style17">
+                        <img id="save" src="images/save.png" style="float:right;cursor:pointer;"/></td>
+                    <td class="auto-style17">
+                        <img id="cancel" src="images/cancel.png" style="float:left;cursor:pointer;"/></td>
+                </tr>
+       
+        
+            </table>
+           
+        </div>
+                  
+    </div>
+     
+
+  <div class='row'>
+
+    <div class='half'>
+
+      <h4>@ Jagraj Singh 300781914 Web Game Programming</h4>
+      
+    </div>
+    
+  </div>
+
+   
+   
+     <script type="text/javascript" src='ExternalLibrary/easeljs-0.5.0.min.js'></script>
+   
+     <script type="text/javascript" src='js/game.js'></script>
+ 
+    		<audio id="main_music" loop>
+		
+	    		<source src="sounds/backsound.mp3"  type="audio/mp3" />
+		    
+            </audio>
+            <audio id="jump">
+			
+			        <source src="sounds/jump.mp3" type="audio/mp3" />
+			
+		    </audio>
+
+		    <audio id="fall">
+		
+			    <source src="sounds/fall.mp3"  type="audio/mp3" />
+			
+		    </audio>
+    
+    </body>
+</html>

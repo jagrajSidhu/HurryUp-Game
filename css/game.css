@@ -1,0 +1,236 @@
+html 
+{
+    landscape.png
+    background: #fcf8fc url(../images/noise-bg.png);
+}
+body 
+{
+      padding: 0;
+      margin: 0;
+      background: url(../images/landscape.png) top center repeat-x;
+      border-top: 5px solid #008894;
+}
+
+header 
+{
+      width: 480px;
+      height: 100px;
+      margin: 2em auto;
+      background: url(../images/rush-header.png) center center no-repeat;
+      overflow: hidden;
+}
+
+header h1 
+{
+      white-space: nowrap;
+      text-indent: 100%;
+}
+
+#game 
+{
+      position: relative;
+      width: 650px;
+      height: 400px;
+      margin: auto;
+      box-shadow: 0 6px 3px -5px #000;
+      border-style: solid;
+      border-width: 14px;
+      border-top-color: #c5a578;
+      border-left-color: #977e5a;
+      border-right-color: #977e5a;
+      border-bottom-color: #7c6749;
+}
+
+#game-canvas 
+{
+      background: #efefef;
+}
+
+.scene 
+{
+      width: 650px;
+      height: 400px;
+      background: #efefef;
+      position: absolute;
+      top: 0;
+      left: 0;
+}
+
+.hidden 
+{
+      display: none;
+}
+
+#menu 
+{
+      background: url(../images/rush-menu-scene.png);
+}
+
+#gameover 
+{
+      background: url(../images/rush-gameover-scene.png);
+}
+
+ #restart-btn
+{
+      display: block;
+      width: 650px;
+      height: 400px;
+}
+
+#score 
+{
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width:635px;
+}
+
+#your-game-score 
+{
+      width: 650px;
+      text-align: center;
+      position: absolute;
+      top: 90px;
+}
+
+#top-scores ul
+{
+      list-style: none;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 180px;
+}
+
+.row 
+{
+      width: 650px;
+      margin: auto;
+      overflow: auto;
+}
+
+.half 
+{
+      width: 70%;
+      float:right;
+}
+
+ul.how-to-play, #top-scores-board ul 
+{
+      list-style-image: url(../images/coin1.png);
+      list-style-position: inside;
+      padding: 0;
+}
+
+.hr 
+{
+      background: url(../images/hr.png) center center no-repeat;
+      height: 50px;
+}
+
+.hr hr ,#game-setting
+{
+      display: none;
+}
+
+
+footer 
+{
+      text-align: center;
+      color: #999;
+      font-size: 0.8em;
+      margin-bottom: 3em;
+}
+
+footer a 
+{
+      text-decoration: none;
+      color: #999;
+      -webkit-transition: all 0.3s ease-out;
+      -moz-transition: all 0.3s ease-out;
+      -ms-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+}
+
+footer a:hover
+{
+        color: #000;
+}
+        
+        .auto-style1
+        {
+            width: 650px;
+            height: 400px;
+            background-color:rgb(203,255,132);
+        }
+        .auto-style2
+        {
+            height: 40px;
+        }
+        .auto-style4
+        {
+            height: 40px;
+            width: 15px;
+        }
+        .auto-style6
+        {
+            height: 155px;
+        }
+        .auto-style7
+        {
+            width: 15px;
+            height: 155px;
+        }
+        .auto-style8
+        {
+            height: 77px;
+        }
+        .auto-style10
+        {
+            width: 15px;
+            height: 77px;
+        }
+        .auto-style11
+        {
+            height: 77px;
+            width: 101px;
+        }
+        .auto-style13
+        {
+            height: 77px;
+            width: 96px;
+        }
+        .auto-style14
+        {
+            height: 37px;
+            width: 101px;
+        }
+        .auto-style15
+        {
+            height: 37px;
+            width: 96px;
+        }
+        .auto-style16
+        {
+            height: 37px;
+            width: 15px;
+        }
+        .auto-style17
+        {
+            height: 37px;
+        }
+        .unselected
+        {
+            width:98%;
+            height:98%;
+            cursor:pointer;
+        }
+        .selected
+        {
+            width:95%;
+            height:95%;
+            border:2px solid blue;
+
+        }
